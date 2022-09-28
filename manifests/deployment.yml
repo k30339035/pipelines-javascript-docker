@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: kpipelinesjavascriptdocker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kpipelinesjavascriptdocker
+  template:
+    metadata:
+      labels:
+        app: kpipelinesjavascriptdocker 
+    spec:
+      containers:
+        - name: kpipelinesjavascriptdocker 
+          image: acrwatercastle.azurecr.io/kpipelinesjavascriptdocker
+          ports:
+          - containerPort: 8080
