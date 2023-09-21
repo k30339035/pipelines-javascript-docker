@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javacontainer
+  labels:
+    app: javacontainer
+  namespace: javacontainer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: javacontainer
+  template:
+    metadata:
+      labels:
+        app: javacontainer
+    spec:
+      containers:
+        - name: javacontainer
+          image: aiacon.azurecr.io/image-workflow-1695337562287:latest
+          ports:
+            - containerPort: 3000
